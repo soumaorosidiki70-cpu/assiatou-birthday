@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import type { Transition } from 'framer-motion';
+import type { Transition, TargetAndTransition } from 'framer-motion';
 import Link from 'next/link';
 
 const easing: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
@@ -10,7 +10,7 @@ const cards: {
   id: number;
   title: string;
   text: string;
-  animation: { initial: object; whileInView: object; transition: Transition };
+  animation: { initial: TargetAndTransition; whileInView: TargetAndTransition; transition: Transition };
   accent: string;
   border: string;
 }[] = [
