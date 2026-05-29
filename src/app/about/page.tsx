@@ -250,15 +250,16 @@ function Bloc({
   reverse: boolean;
   index: number;
 }) {
+  const easing: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
   const photoAnim = {
     initial: { opacity: 0, x: reverse ? 60 : -60 },
     whileInView: { opacity: 1, x: 0 },
-    transition: { duration: 0.9, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.9, ease: easing },
   };
   const textAnim = {
     initial: { opacity: 0, x: reverse ? -60 : 60 },
     whileInView: { opacity: 1, x: 0 },
-    transition: { duration: 0.9, delay: 0.15, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.9, delay: 0.15, ease: easing },
   };
 
   return (
