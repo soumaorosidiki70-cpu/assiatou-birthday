@@ -1,10 +1,19 @@
 'use client';
 
-import { useRef } from 'react';
 import { motion } from 'framer-motion';
+import type { Transition } from 'framer-motion';
 import Link from 'next/link';
 
-const cards = [
+const easing: [number, number, number, number] = [0.25, 0.46, 0.45, 0.94];
+
+const cards: {
+  id: number;
+  title: string;
+  text: string;
+  animation: { initial: object; whileInView: object; transition: Transition };
+  accent: string;
+  border: string;
+}[] = [
   {
     id: 1,
     title: 'En public...',
@@ -12,7 +21,7 @@ const cards = [
     animation: {
       initial: { opacity: 0, y: 60 },
       whileInView: { opacity: 1, y: 0 },
-      transition: { duration: 0.7, type: 'spring', bounce: 0.35 },
+      transition: { duration: 0.7, type: 'spring', bounce: 0.35 } as Transition,
     },
     accent: 'rgba(201,168,76,0.12)',
     border: 'rgba(201,168,76,0.3)',
@@ -24,7 +33,7 @@ const cards = [
     animation: {
       initial: { opacity: 0, rotate: -6, scale: 0.9 },
       whileInView: { opacity: 1, rotate: 0, scale: 1 },
-      transition: { duration: 0.8, type: 'spring', bounce: 0.45 },
+      transition: { duration: 0.8, type: 'spring', bounce: 0.45 } as Transition,
     },
     accent: 'rgba(180,40,40,0.08)',
     border: 'rgba(200,60,60,0.35)',
@@ -36,7 +45,7 @@ const cards = [
     animation: {
       initial: { opacity: 0, x: -80 },
       whileInView: { opacity: 1, x: 0 },
-      transition: { duration: 0.7, type: 'spring', bounce: 0.4 },
+      transition: { duration: 0.7, type: 'spring', bounce: 0.4 } as Transition,
     },
     accent: 'rgba(201,168,76,0.08)',
     border: 'rgba(201,168,76,0.25)',
@@ -48,7 +57,7 @@ const cards = [
     animation: {
       initial: { opacity: 0, y: 40 },
       whileInView: { opacity: 1, y: 0 },
-      transition: { duration: 1, ease: [0.25, 0.46, 0.45, 0.94] },
+      transition: { duration: 1, ease: easing } as Transition,
     },
     accent: 'rgba(201,168,76,0.12)',
     border: 'rgba(201,168,76,0.4)',
